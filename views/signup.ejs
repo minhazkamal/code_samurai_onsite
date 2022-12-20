@@ -25,7 +25,7 @@
     <div class="container">
         <div class="title">Registration</div>
         <div class="content">
-            <form action="#">
+            <form action="#" method="post">
                 <div class="user-details">
                     <!-- <div class="input-box">
             <span class="details">Full Name</span>
@@ -37,12 +37,12 @@
           </div> -->
           <div class="input-box">
             <span class="details">Username</span>
-            <input type="text" placeholder="Enter your username" required>
+            <input type="text" name="username" placeholder="Enter your username" required>
         </div>
 
                     <div class="input-box">
                         <span class="details">Email</span>
-                        <input type="email" placeholder="Enter your email" required>
+                        <input type="email" name='email' placeholder="Enter your email" required>
                     </div>
                     <!-- <div class="input-box">
             <span class="details">Phone Number</span>
@@ -50,7 +50,7 @@
           </div> -->
                     <div class="input-box">
                         <span class="details">Password</span>
-                        <input type="password" id="password" placeholder="Enter your password"
+                        <input type="password" id="password" name="password" placeholder="Enter your password"
                             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                             title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
                             required>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Confirm Password</span>
-                        <input type="password" id="confirm-password" placeholder="Confirm your password"
+                        <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your password"
                             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                             title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
                             required>

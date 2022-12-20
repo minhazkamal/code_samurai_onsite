@@ -60,6 +60,7 @@ var signup = require('./controllers/signup');
 var showProject = require('./controllers/showProject');
 var login = require('./controllers/login');
 const { default: axios } = require('axios');
+const axiosInstance = axios.create({});
 
 
 // view engine
