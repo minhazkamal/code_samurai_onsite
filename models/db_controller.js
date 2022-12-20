@@ -25,6 +25,15 @@ db.connect(function (err) {
     }
 });
 
+module.exports.getAllProjects = function () {
+    var query = "SELECT * FROM `projects`";
+    return new Promise((resolve, reject) => {
+        db.query(query, (err, res) => {
+            err ? reject(err) : resolve(res)
+        })
+    })
+}
+
 module.exports.signup = function (user, callback) {
 
     if (user.provider === "google" || user.provider === "facebook") {

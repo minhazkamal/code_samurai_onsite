@@ -57,6 +57,7 @@ var db = require('./models/db_controller');
 // var notificationResolve = require('./controllers/notificationResolve');
 // var statsForHome = require('./controllers/stats');
 var signup = require('./controllers/signup');
+var showProject = require('./controllers/showProject');
 
 
 // view engine
@@ -69,6 +70,7 @@ app.set('view engine', 'ejs');
 // middlewares
 app.use(express.static('./public'));
 app.use('/profile', express.static('profile'));
+app.use('/img', express.static('img'));
 
 
 
@@ -128,6 +130,7 @@ var server = app.listen(port, function () {
 // app.use('/notification-resolve', notificationResolve);
 // app.use('/stats-for-home', statsForHome);
 app.use('/signup', signup)
+app.use('/showProject', showProject)
 
 //localhost:3940/new-request
 // app.get('/new-request', function(req,res){
@@ -215,6 +218,10 @@ app.post('/org-input', function (req, res) {
 app.get('/test-page', function (req, res) {
     res.render('test.ejs');
 });
+
+app.get('/showProjects', function (req, res) {
+            res.render('showProject.ejs');
+})
 
 app.get('/getType', function (req, res) {
     let user_type = {
