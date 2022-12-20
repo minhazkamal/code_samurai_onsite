@@ -1,0 +1,30 @@
+{
+  "name": "handy-timeago",
+  "version": "1.0.2",
+  "description": "Returns Time in ago format!!",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yTakkar/Handy-TimeAgo.git"
+  },
+  "keywords": [
+    "timeago",
+    "handy",
+    "takkar",
+    "time"
+  ],
+  "author": "takkar <shtakkar@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yTakkar/Handy-TimeAgo/issues"
+  },
+  "homepage": "https://github.com/yTakkar/Handy-TimeAgo#readme",
+  "devDependencies": {
+    "jest": "^22.4.2"
+  }
+}
