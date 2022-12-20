@@ -24,50 +24,54 @@ var box = require('./models/mapbox');
 var db = require('./models/db_controller');
 
 // file modules
-var landing = require('./controllers/landing');
+// var landing = require('./controllers/landing');
+// var signup = require('./controllers/signup');
+// var signup_google = require('./controllers/signup_google');
+// var login_google = require('./controllers/login_google');
+// var signup_facebook = require('./controllers/signup_facebook');
+// var login_facebook = require('./controllers/login_facebook');
+// var verification = require('./controllers/verification');
+// var profile_update = require('./controllers/updateProfile');
+// var login = require('./controllers/login');
+// var eligibilityTest = require('./controllers/eligibilityTest');
+// var resetPassword = require('./controllers/resetPassword');
+// var KYC = require('./controllers/KYC');
+// var address = require('./controllers/address');
+// var mapquery = require('./controllers/mapquery');
+// var org = require('./controllers/showOrg');
+// var donor = require('./controllers/showDonor');
+// var newRequest = require('./controllers/newRequest');
+// var dashboard = require('./controllers/dashboard');
+// var myProfile = require('./controllers/myProfile');
+// var viewRequest = require('./controllers/viewRequest');
+// var resolveRequest = require('./controllers/requestResolve');
+// var changePassword = require('./controllers/changePassword');
+// var contactUs = require('./controllers/contactUs');
+// var requestFeed = require('./controllers/requestFeed');
+// var viewProfile = require('./controllers/viewProfile');
+// var signout = require('./controllers/signout');
+// var newDonation = require('./controllers/newDonation');
+// var eligibilityReport = require('./controllers/eligibilityReport');
+// var viewDonation = require('./controllers/viewDonation');
+// var respondTOrequest = require('./controllers/respondTOrequest');
+// var notificationResolve = require('./controllers/notificationResolve');
+// var statsForHome = require('./controllers/stats');
 var signup = require('./controllers/signup');
-var signup_google = require('./controllers/signup_google');
-var login_google = require('./controllers/login_google');
-var signup_facebook = require('./controllers/signup_facebook');
-var login_facebook = require('./controllers/login_facebook');
-var verification = require('./controllers/verification');
-var profile_update = require('./controllers/updateProfile');
-var login = require('./controllers/login');
-var eligibilityTest = require('./controllers/eligibilityTest');
-var resetPassword = require('./controllers/resetPassword');
-var KYC = require('./controllers/KYC');
-var address = require('./controllers/address');
-var mapquery = require('./controllers/mapquery');
-var org = require('./controllers/showOrg');
-var donor = require('./controllers/showDonor');
-var newRequest = require('./controllers/newRequest');
-var dashboard = require('./controllers/dashboard');
-var myProfile = require('./controllers/myProfile');
-var viewRequest = require('./controllers/viewRequest');
-var resolveRequest = require('./controllers/requestResolve');
-var changePassword = require('./controllers/changePassword');
-var contactUs = require('./controllers/contactUs');
-var requestFeed = require('./controllers/requestFeed');
-var viewProfile = require('./controllers/viewProfile');
-var signout = require('./controllers/signout');
-var newDonation = require('./controllers/newDonation');
-var eligibilityReport = require('./controllers/eligibilityReport');
-var viewDonation = require('./controllers/viewDonation');
-var respondTOrequest = require('./controllers/respondTOrequest');
-var notificationResolve = require('./controllers/notificationResolve');
-var statsForHome = require('./controllers/stats');
 
 
 // view engine
 app.set('view engine', 'ejs');
 
 // Initializes passport and passport sessions
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // middlewares
 app.use(express.static('./public'));
 app.use('/profile', express.static('profile'));
+
+
+
 // app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -90,39 +94,40 @@ var server = app.listen(port, function () {
     hl.rainbow('App Running');
 });
 
-app.use('/', landing);
-app.use('/signup', signup);
-app.use('/activate', verification);
-app.use('/profile-update', profile_update);
-app.use('/login', login);
-app.use('/signup-google', signup_google);
-app.use('/login-google', login_google);
-app.use('/signup-facebook', signup_facebook);
-app.use('/login-facebook', login_facebook);
-app.use('/eligibility-test', eligibilityTest);
-app.use('/login-facebook', login_facebook);
-app.use('/reset-password', resetPassword);
-app.use('/KYC', KYC);
-app.use('/address', address);
-app.use('/map-box', mapquery);
-app.use('/show-org', org);
-app.use('/show-donor', donor);
-app.use('/new-request', newRequest);
-app.use('/dashboard', dashboard);
-app.use('/my-profile', myProfile);
-app.use('/request/view', viewRequest);
-app.use('/request/resolve', resolveRequest);
-app.use('/change-password', changePassword);
-app.use('/contact-us', contactUs);
-app.use('/request-feed', requestFeed);
-app.use('/view-profile', viewProfile);
-app.use('/signout', signout);
-app.use('/add-new-donation', newDonation);
-app.use('/view/eligibility-report', eligibilityReport);
-app.use('/view/donation', viewDonation);
-app.use('/request/respond', respondTOrequest);
-app.use('/notification-resolve', notificationResolve);
-app.use('/stats-for-home', statsForHome);
+// app.use('/', landing);
+// app.use('/signup', signup);
+// app.use('/activate', verification);
+// app.use('/profile-update', profile_update);
+// app.use('/login', login);
+// app.use('/signup-google', signup_google);
+// app.use('/login-google', login_google);
+// app.use('/signup-facebook', signup_facebook);
+// app.use('/login-facebook', login_facebook);
+// app.use('/eligibility-test', eligibilityTest);
+// app.use('/login-facebook', login_facebook);
+// app.use('/reset-password', resetPassword);
+// app.use('/KYC', KYC);
+// app.use('/address', address);
+// app.use('/map-box', mapquery);
+// app.use('/show-org', org);
+// app.use('/show-donor', donor);
+// app.use('/new-request', newRequest);
+// app.use('/dashboard', dashboard);
+// app.use('/my-profile', myProfile);
+// app.use('/request/view', viewRequest);
+// app.use('/request/resolve', resolveRequest);
+// app.use('/change-password', changePassword);
+// app.use('/contact-us', contactUs);
+// app.use('/request-feed', requestFeed);
+// app.use('/view-profile', viewProfile);
+// app.use('/signout', signout);
+// app.use('/add-new-donation', newDonation);
+// app.use('/view/eligibility-report', eligibilityReport);
+// app.use('/view/donation', viewDonation);
+// app.use('/request/respond', respondTOrequest);
+// app.use('/notification-resolve', notificationResolve);
+// app.use('/stats-for-home', statsForHome);
+app.use('/signup', signup)
 
 //localhost:3940/new-request
 // app.get('/new-request', function(req,res){
@@ -209,4 +214,15 @@ app.post('/org-input', function (req, res) {
 
 app.get('/test-page', function (req, res) {
     res.render('test.ejs');
+});
+
+app.get('/getType', function (req, res) {
+    let user_type = {
+        0: 'APP',
+        1: 'ECNEC',
+        2: 'EXEC',
+        3: 'MOP',
+        4: 'SYSADMIN'
+    }
+    res.json(user_type);
 });
