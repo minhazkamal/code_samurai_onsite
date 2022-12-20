@@ -13,7 +13,7 @@
 
 <body>
     <div class="container">
-        <div class="title">Registration</div>
+        <div class="title">Login</div>
         <div class="content">
             <form action="#">
                 <div class="user-details">
@@ -30,10 +30,6 @@
             <input type="text" placeholder="Enter your username" required>
         </div>
 
-                    <div class="input-box">
-                        <span class="details">Email</span>
-                        <input type="email" placeholder="Enter your email" required>
-                    </div>
                     <!-- <div class="input-box">
             <span class="details">Phone Number</span>
             <input type="text" placeholder="Enter your number" required>
@@ -49,31 +45,12 @@
                             <i id="hide-eye-slash-password" class="fa fa-eye-slash"></i>
                         </span> -->
                     </div>
-                    <div class="input-box">
-                        <span class="details">Confirm Password</span>
-                        <input type="password" id="confirm-password" placeholder="Confirm your password"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
-                            required>
-                        <!-- <span class="eye-confirm-password" onclick="toggleEyeButtonForConfirmPassword()">
-                            <i id="hide-eye-confirm-password" class="fa fa-eye"></i>
-                            <i id="hide-eye-slash-confirm-password" class="fa fa-eye-slash"></i>
-                        </span> -->
-                    </div>
-                    <div class="input-box">
-                        <span for="user_type" class="details">User Type</span>
-
-                        <select name="user_type" id="userType" required>
-                            <option value="" disabled selected>Select a Type</option>
-                            <option value="APP">Application User</option>
-                            <option value="EXEC">Executive Agnecy</option>
-                        </select>
-                    </div>
+                    
 
                 </div>
 
                 <div class="button">
-                    <input type="submit" value="Register">
+                    <input type="submit" value="Login">
                 </div>
             </form>
         </div>

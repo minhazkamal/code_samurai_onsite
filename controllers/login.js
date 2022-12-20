@@ -16,7 +16,7 @@ router.use(bodyParser.urlencoded({extended : true}));
 router.use(bodyParser.json());
 
 router.get('/', function(req,res){
-    res.render('signup.ejs');
+    res.render('login.ejs');
 });
 
 

@@ -241,7 +241,7 @@ app.get('/file-upload', function(req, res) {
     res.render('fileupload');
 })
 
-axios.get('http://127.0.0.1:5000/').then(result => {
-    console.log(result.data);
-})
+// axios.get('http://127.0.0.1:5000/').then(result => {
+//     console.log(result.data);
+// })
 ;
