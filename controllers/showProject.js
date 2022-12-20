@@ -1,5 +1,6 @@
 var express = require ('express');
 var router = express.Router();
+var axios = require('axios')
 var bodyParser = require('body-parser');
 var db = require ('../models/db_controller');
 // var mail = require('../models/mail');
@@ -12,8 +13,10 @@ router.use(bodyParser.urlencoded({extended : true}));
 router.use(bodyParser.json());
 
 router.get('/details', function(req,res){
-    db.getAllProjects()
+    // db.getAllProjects()
+    axios.get('http://127.0.0.1:5000/getallprojects')
     .then(result => {
+        console.log(result.data)
         var org = {
             type: 'FeatureCollection',
             features: []

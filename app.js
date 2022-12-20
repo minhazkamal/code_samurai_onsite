@@ -58,6 +58,7 @@ var db = require('./models/db_controller');
 // var statsForHome = require('./controllers/stats');
 var signup = require('./controllers/signup');
 var showProject = require('./controllers/showProject');
+const { default: axios } = require('axios');
 
 
 // view engine
@@ -233,3 +234,11 @@ app.get('/getType', function (req, res) {
     }
     res.json(user_type);
 });
+app.get('/file-upload', function(req, res) {
+    res.render('fileupload');
+})
+
+axios.get('http://127.0.0.1:5000/').then(result => {
+    console.log(result.data);
+})
+;
