@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/signup.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -34,17 +35,31 @@
           </div> -->
                     <div class="input-box">
                         <span class="details">Password</span>
-                        <input type="text" placeholder="Enter your password" required>
+                        <input type="password" placeholder="Enter your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
+                        required>
+                        <span class="eye-password" onclick="toggleEyeButtonForPassword()">
+                            <i id="hide-eye-password" class="fa fa-eye"></i>
+                            <i id="hide-eye-slash-password" class="fa fa-eye-slash"></i>
+                        </span>
                     </div>
                     <div class="input-box">
                         <span class="details">Confirm Password</span>
-                        <input type="text" placeholder="Confirm your password" required>
+                        <input type="password" placeholder="Confirm your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
+                        required>
+                        <span class="eye-confirm-password" onclick="toggleEyeButtonForConfirmPassword()">
+                            <i id="hide-eye-confirm-password" class="fa fa-eye"></i>
+                            <i id="hide-eye-slash-confirm-password" class="fa fa-eye-slash"></i>
+                        </span>
                     </div>
                     <div class="input-box">
                         <span for="user_type" class="details">User Type</span>
 
                         <select name="user_type" id="userType" required>
                             <option value="" disabled selected>Select a Type</option>
+                            <option value="APP">Application User</option>
+                            <option value="EXEC">Executing Agnecy</option>
                         </select>
                     </div>
 
@@ -60,30 +75,30 @@
 </body>
 <script>
     $(document).ready(function () {
-        $.ajax({
-            type: 'GET',
-            data: {},
-            url: '/getType',
-            success: function (data) {
-                // console.log(data);
-                var result = [];
-                for (var i in data) {
-                    result.push([data[i]]);
-                    // create option using DOM
-                    const newOption = document.createElement('option');
-                    const optionText = document.createTextNode(data[i]);
-                    // set option text
-                    newOption.appendChild(optionText);
-                    // and option value
-                    newOption.setAttribute('value', data[i]);
-                    const select = document.getElementById('userType');
-                    select.appendChild(newOption);
-                }
+        // $.ajax({
+        //     type: 'GET',
+        //     data: {},
+        //     url: '/getType',
+        //     success: function (data) {
+        //         // console.log(data);
+        //         var result = [];
+        //         for (var i in data) {
+        //             result.push([data[i]]);
+        //             // create option using DOM
+        //             const newOption = document.createElement('option');
+        //             const optionText = document.createTextNode(data[i]);
+        //             // set option text
+        //             newOption.appendChild(optionText);
+        //             // and option value
+        //             newOption.setAttribute('value', data[i]);
+        //             const select = document.getElementById('userType');
+        //             select.appendChild(newOption);
+        //         }
 
-                console.log(result);
-                // if (data.upazilla !== null) $('#basic_upazilla').val(data.upazilla);
-            }
-        });
+        //         console.log(result);
+        //         // if (data.upazilla !== null) $('#basic_upazilla').val(data.upazilla);
+        //     }
+        // });
     });
 </script>
 
