@@ -58,6 +58,7 @@ var db = require('./models/db_controller');
 // var statsForHome = require('./controllers/stats');
 var signup = require('./controllers/signup');
 var showProject = require('./controllers/showProject');
+var login = require('./controllers/login');
 const { default: axios } = require('axios');
 
 
@@ -132,6 +133,7 @@ var server = app.listen(port, function () {
 // app.use('/stats-for-home', statsForHome);
 app.use('/signup', signup)
 app.use('/showProject', showProject)
+app.use('/login', login);
 
 //localhost:3940/new-request
 // app.get('/new-request', function(req,res){

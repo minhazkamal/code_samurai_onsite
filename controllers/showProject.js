@@ -14,26 +14,26 @@ router.use(bodyParser.json());
 
 router.get('/details', function(req,res){
     // db.getAllProjects()
-    axios.get('http://127.0.0.1:5000/getallprojects')
+    axios.get('http://127.0.0.1:5000/approvedprojects')
     .then(result => {
-        console.log(result.data)
+        //console.log(result.data)
         var org = {
             type: 'FeatureCollection',
             features: []
         };
 
-        for(var i=0; i<result.length; i++)
+        for(var i=0; i<result.data.length; i++)
         {
             var Prop_Obj = { 
-                exec: result[i].exec, 
-                title: result[i].name, 
-                address: result[i].location 
+                exec: result.data[i].exec, 
+                title: result.data[i].name, 
+                address: result.data[i].location 
             };
             // var property = JSON.stringify(Prop_Obj);
 
             var geo_Obj = {
                 type: 'Point', 
-                coordinates: [result[i].longitude, result[i].latitude]
+                coordinates: [result.data[i].longitude, result.data[i].latitude]
             };
             // var geo = JSON.stringify(geo_Obj);
 
