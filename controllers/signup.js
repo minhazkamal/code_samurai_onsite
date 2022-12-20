@@ -66,7 +66,7 @@ body('confirm_password').custom((value, { req }) => {
     //   password: '12as@A',
     //   type: 'APP'
     // }
-    console.log(newUser);
+    // console.log(newUser);
 
     axios({
       method: "post",
@@ -77,10 +77,12 @@ body('confirm_password').custom((value, { req }) => {
       .then(function (response) {
         //handle success
         console.log(response.data);
+        window.location = '/login';
       })
       .catch(function (error) {
         //handle error
         console.log(error.response.data);
+        window.location = '/signup';
       });
 
   }
