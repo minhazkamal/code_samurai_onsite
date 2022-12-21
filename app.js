@@ -227,6 +227,10 @@ app.get('/showProjects', function (req, res) {
             res.render('showProject.ejs');
 })
 
+app.get('/showProjectsExec', function (req, res) {
+    res.render('showProjectExec.ejs');
+})
+
 app.get('/getType', function (req, res) {
     let user_type = {
         0: 'APP',
@@ -239,6 +243,10 @@ app.get('/getType', function (req, res) {
 });
 app.get('/file-upload', function(req, res) {
     res.render('fileupload');
+})
+
+app.get('/logout', function(req, res) {
+    axios.post('http://127.0.0.1:5000/logout')
 })
 
 // axios.get('http://127.0.0.1:5000/').then(result => {

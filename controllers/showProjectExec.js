@@ -30,7 +30,8 @@ router.get('/details', function(req,res){
                 address: result.data[i].location,
                 budget: result.data[i].cost,
                 completion: result.data[i].completion,
-                actualCost: result.data[i].actual_cost 
+                actualCost: result.data[i].actual_cost,
+                status: result.data[i].project_status 
             };
             // var property = JSON.stringify(Prop_Obj);
 

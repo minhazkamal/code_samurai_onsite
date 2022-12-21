@@ -79,7 +79,7 @@ router.post('/', [check('password', 'Password field is empty').notEmpty(),
         .then(function (response) {
           //handle success
           console.log(response.data);
-          res.redirect('/showProjects');
+          res.redirect('/showProjectsExec');
         })
         .catch(function (error) {
           //handle error
