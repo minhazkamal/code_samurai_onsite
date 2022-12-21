@@ -22,12 +22,12 @@
             </div>
             <% }) %>
                 <% } %>
-    <div class="container">
-        <div class="title">Registration</div>
-        <div class="content">
-            <form action="#" method="post">
-                <div class="user-details">
-                    <!-- <div class="input-box">
+                    <div class="container">
+                        <div class="title">Registration</div>
+                        <div class="content">
+                            <form action="#" method="post">
+                                <div class="user-details">
+                                    <!-- <div class="input-box">
             <span class="details">Full Name</span>
             <input type="text" placeholder="Enter your name" required>
           </div>
@@ -35,59 +35,70 @@
             <span class="details">Username</span>
             <input type="text" placeholder="Enter your username" required>
           </div> -->
-          <div class="input-box">
-            <span class="details">Username</span>
-            <input type="text" name="username" placeholder="Enter your username" required>
-        </div>
+                                    <div class="input-box">
+                                        <span class="details">Username</span>
+                                        <input type="text" name="username" placeholder="Enter your username" required>
+                                    </div>
 
-                    <div class="input-box">
-                        <span class="details">Email</span>
-                        <input type="email" name='email' placeholder="Enter your email" required>
-                    </div>
-                    <!-- <div class="input-box">
+                                    <div class="input-box">
+                                        <span class="details">Email</span>
+                                        <input type="email" name='email' placeholder="Enter your email" required>
+                                    </div>
+                                    <!-- <div class="input-box">
             <span class="details">Phone Number</span>
             <input type="text" placeholder="Enter your number" required>
           </div> -->
-                    <div class="input-box">
-                        <span class="details">Password</span>
-                        <input type="password" id="password" name="password" placeholder="Enter your password"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
-                            required>
-                        <!-- <span class="eye-password" onclick="toggleEyeButtonForPassword()">
+                                    <div class="input-box">
+                                        <span class="details">Password</span>
+                                        <input type="password" id="password" name="password"
+                                            placeholder="Enter your password"
+                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
+                                            required>
+                                        <!-- <span class="eye-password" onclick="toggleEyeButtonForPassword()">
                             <i id="hide-eye-password" class="fa fa-eye"></i>
                             <i id="hide-eye-slash-password" class="fa fa-eye-slash"></i>
                         </span> -->
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Confirm Password</span>
-                        <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your password"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
-                            required>
-                        <!-- <span class="eye-confirm-password" onclick="toggleEyeButtonForConfirmPassword()">
+                                    </div>
+                                    <div class="input-box">
+                                        <span class="details">Confirm Password</span>
+                                        <input type="password" id="confirm-password" name="confirm_password"
+                                            placeholder="Confirm your password"
+                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
+                                            required>
+                                        <!-- <span class="eye-confirm-password" onclick="toggleEyeButtonForConfirmPassword()">
                             <i id="hide-eye-confirm-password" class="fa fa-eye"></i>
                             <i id="hide-eye-slash-confirm-password" class="fa fa-eye-slash"></i>
                         </span> -->
+                                    </div>
+                                    <div class="input-box">
+                                        <span for="user_type" class="details">User Type</span>
+
+                                        <select name="user_type" id="userType" onchange='toggle()'required>
+                                            <option value="" disabled selected>Select a Type</option>
+                                            <option value="APP">Application User</option>
+                                            <option value="EXEC">Executive Agnecy</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-box forAgency" id="forAgency1" style="display: none;">
+                                        <span class="details">Agency Name</span>
+                                        <input type="text" name="agencyName" placeholder="Enter your agency name">
+                                    </div>
+                                    <div class="input-box forAgency" id="forAgency" style="display: none;">
+                                        <span class="details">Description</span>
+                                        <input type="text" name="description"
+                                            placeholder="Enter your agency description">
+                                    </div>
+
+                                </div>
+
+                                <div class="button">
+                                    <input type="submit" value="Register">
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="input-box">
-                        <span for="user_type" class="details">User Type</span>
-
-                        <select name="user_type" id="userType" required>
-                            <option value="" disabled selected>Select a Type</option>
-                            <option value="APP">Application User</option>
-                            <option value="EXEC">Executive Agnecy</option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <div class="button">
-                    <input type="submit" value="Register">
-                </div>
-            </form>
-        </div>
-    </div>
 
 </body>
 <script>
@@ -121,6 +132,23 @@
             eye_slash.style.display = "block";
         }
     }
+    function toggle() {
+        var userType = document.getElementById("userType");
+        console.log(userType.value);
+        if (userType.value == "EXEC") {
+            var forAgency = document.getElementById('forAgency')
+            forAgency.style.display = "block";
+            var forAgency1 = document.getElementById('forAgency1')
+            forAgency1.style.display = "block";
+        } else {
+            var forAgency = document.getElementById('forAgency')
+            forAgency.style.display = "none";
+            var forAgency1 = document.getElementById('forAgency1')
+            forAgency1.style.display = "none";
+        }
+
+    }
+
     $(document).ready(function () {
         // $.ajax({
         //     type: 'GET',

@@ -7,6 +7,7 @@ var mysql = require('mysql');
 var hl = require('handy-log');
 var Cryptr = require('cryptr');
 var cryptr = new Cryptr(process.env.SECURITY_KEY);
+var axios = require('axios');
 
 const { body, check, validationResult } = require('express-validator');
 
@@ -21,27 +22,8 @@ router.get('/', function(req,res){
 
 
 // Sign Up Form Validation
-router.post('/', [check('email', 'Email is empty').notEmpty(),
-check('email', 'Email is invalid').isEmail(),
-check('password', 'Password field is empty').notEmpty(),
-check('confirm_password', 'Confirm Password field is empty').notEmpty(),
-body('confirm_password').custom((value, { req }) => {
-
-    if (value !== req.body.password) {
-      throw new Error('Confirm Password does not match with Password');
-    }
-
-    // Indicates the success of this synchronous custom validator
-    return true;
-  }),
-  body('email').custom(value => {
-    return db.direct_query('SELECT COUNT(*) as emailCount FROM users WHERE email = ?', [value])
-    .then(value => {
-        if(value[0].emailCount == 1) {
-            return Promise.reject('E-mail already in use');
-        }
-    });
-  })], function(req,res){
+router.post('/', [check('password', 'Password field is empty').notEmpty(),
+], function(req,res){
     
     var email = req.body.email;
     var password = req.body.password;
@@ -56,17 +38,14 @@ body('confirm_password').custom((value, { req }) => {
     if (!errors.isEmpty()) {
         //console.log(errors);
         const alert = errors.array();
-        res.render('signup', {alert});
+        res.render('login', {alert});
     }
     else {
-      let newUser = {
-      f_name: req.body.fname,
-      l_name: req.body.lname,
-      email: req.body.email,
-      password,
-      joined: new Date(),
-      provider: "self"
+      let UserAuth = {
+      user_id: req.body.username,
+      password: req.body.password
       }
+      // console.log(UserAuth);
       // db.signup(newUser, function(insert_id, f_name){
       //   //console.log(insert_id);
       //   var encrypted_insert_id = cryptr.encrypt(insert_id);
@@ -91,6 +70,23 @@ body('confirm_password').custom((value, { req }) => {
       //       res.render('message.ejs', {alert_type: 'danger', message: `Error sending mail!`, type:'mail'})
       //     })
       // });
+      axios({
+        method: "post",
+        url: "http://127.0.0.1:5000/login",
+        data: UserAuth,
+        // headers: { "Content-Type": `multipart/form-data; boundary=${form_data._boundary}`, ..form_data.getheaders() },
+      })
+        .then(function (response) {
+          //handle success
+          console.log(response.data);
+          res.redirect('/showProjects');
+        })
+        .catch(function (error) {
+          //handle error
+          console.log(error.response.data);
+          res.redirect('/login');
+        });
+  
     }
   }        
 );

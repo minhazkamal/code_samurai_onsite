@@ -11,6 +11,7 @@ var cryptr = new Cryptr(process.env.SECURITY_KEY);
 
 const { body, check, validationResult } = require('express-validator');
 const { default: axios } = require('axios');
+const { response } = require('express');
 
 
 
@@ -58,7 +59,9 @@ body('confirm_password').custom((value, { req }) => {
       user_id: req.body.username,
       email: req.body.email,
       password,
-      type: req.body.user_type
+      type: req.body.user_type,
+      name: req.body.agencyName,
+      description: req.body.description
     }
     // let newUser = {
     //   user_id: 'sartajekram',
@@ -77,12 +80,12 @@ body('confirm_password').custom((value, { req }) => {
       .then(function (response) {
         //handle success
         console.log(response.data);
-        window.location = '/login';
+        res.redirect('/login');
       })
       .catch(function (error) {
         //handle error
         console.log(error.response.data);
-        window.location = '/signup';
+        res.redirect('/signup');
       });
 
   }
